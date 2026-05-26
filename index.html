@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lunar Café</title>
+<title>Lunar Menu</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,15 +18,15 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#0b0b0b;
+    background:#090909;
     color:white;
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 /* ========================= */
@@ -43,15 +43,15 @@ body{
     justify-content:center;
     align-items:center;
 
-    animation:hideIntro 1.4s ease forwards;
-    animation-delay:3.2s;
+    animation:hideIntro 1.2s ease forwards;
+    animation-delay:3s;
 }
 
 .intro::before{
     content:"";
     position:absolute;
-    width:320px;
-    height:320px;
+    width:350px;
+    height:350px;
     background:rgba(255,255,255,0.05);
     border-radius:50%;
     filter:blur(100px);
@@ -61,72 +61,30 @@ body{
 .intro-content{
     text-align:center;
     z-index:2;
-    animation:fadeUp 1.5s ease;
 }
 
 .intro-content h1{
     font-size:6rem;
     letter-spacing:14px;
     font-family:'Cormorant Garamond', serif;
-    font-weight:700;
 }
 
 .intro-content p{
     margin-top:12px;
-    color:#bcbcbc;
+    color:#bdbdbd;
     letter-spacing:6px;
     text-transform:uppercase;
     font-size:0.8rem;
 }
 
 /* ========================= */
-/* NAVBAR */
+/* HEADER */
 /* ========================= */
 
-nav{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-
-    padding:22px 8%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    background:rgba(0,0,0,0.35);
-    backdrop-filter:blur(12px);
-
-    z-index:999;
-}
-
-nav h1{
-    font-size:2rem;
-    letter-spacing:3px;
-    font-family:'Cormorant Garamond', serif;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:24px;
-    opacity:0.8;
-    transition:0.3s;
-}
-
-nav a:hover{
-    opacity:1;
-}
-
-/* ========================= */
-/* HERO */
-/* ========================= */
-
-.hero{
+.header{
 
     width:100%;
-    height:100vh;
+    height:70vh;
 
     background:
     linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
@@ -143,92 +101,48 @@ nav a:hover{
     padding:20px;
 }
 
-.hero-content{
-    max-width:850px;
-    animation:fadeUp 1.3s ease;
-}
-
-.hero-content h2{
+.header-content h1{
     font-size:5rem;
-    margin-bottom:20px;
-    letter-spacing:5px;
     font-family:'Cormorant Garamond', serif;
+    letter-spacing:5px;
+    margin-bottom:20px;
 }
 
-.hero-content p{
-    color:#d1d1d1;
+.header-content p{
+    color:#d0d0d0;
     line-height:1.8;
-    margin-bottom:40px;
-    font-size:1.1rem;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.hero-buttons button{
-
-    padding:16px 34px;
-
-    border:none;
-    border-radius:14px;
-
-    cursor:pointer;
-
-    transition:0.35s;
-
-    font-size:1rem;
-}
-
-.reserve{
-    background:white;
-    color:black;
-    font-weight:600;
-}
-
-.reserve:hover{
-    transform:translateY(-4px);
-}
-
-.menu-btn{
-    background:transparent;
-    color:white;
-    border:1px solid rgba(255,255,255,0.25) !important;
-}
-
-.menu-btn:hover{
-    background:white;
-    color:black;
+    max-width:700px;
 }
 
 /* ========================= */
-/* SECTION */
+/* MENU SECTION */
 /* ========================= */
 
 section{
-    padding:120px 10%;
+    padding:100px 10%;
 }
 
-.section-title{
+.category{
+    margin-bottom:100px;
+}
+
+.category-title{
     text-align:center;
-    margin-bottom:70px;
+    margin-bottom:50px;
 }
 
-.section-title h3{
+.category-title h2{
     font-size:3rem;
-    margin-bottom:10px;
     font-family:'Cormorant Garamond', serif;
+    margin-bottom:10px;
 }
 
-.section-title p{
-    color:#bdbdbd;
+.category-title p{
+    color:#b8b8b8;
 }
 
 /* ========================= */
-/* MENU GRID */
+/* GRID */
 /* ========================= */
 
 .menu-grid{
@@ -242,12 +156,12 @@ section{
 }
 
 /* ========================= */
-/* EXPANDABLE CARDS */
+/* CARDS */
 /* ========================= */
 
 .food-card{
 
-    background:#141414;
+    background:#121212;
 
     border:
     1px solid rgba(255,255,255,0.06);
@@ -283,7 +197,7 @@ section{
 }
 
 .food-info span{
-    color:#d9d9d9;
+    color:#d7d7d7;
 }
 
 .food-hidden{
@@ -308,82 +222,19 @@ section{
 }
 
 /* ========================= */
-/* RESERVATION */
-/* ========================= */
-
-.reservation{
-
-    background:#111;
-
-    border-radius:30px;
-
-    padding:80px 40px;
-
-    text-align:center;
-}
-
-.reservation h3{
-    font-size:3rem;
-    margin-bottom:20px;
-    font-family:'Cormorant Garamond', serif;
-}
-
-.reservation p{
-    color:#bdbdbd;
-    line-height:1.8;
-    margin-bottom:30px;
-}
-
-.reservation button{
-
-    padding:18px 38px;
-
-    border:none;
-    border-radius:14px;
-
-    background:white;
-    color:black;
-
-    cursor:pointer;
-
-    font-size:1rem;
-    font-weight:600;
-
-    transition:0.35s;
-}
-
-.reservation button:hover{
-    transform:scale(1.05);
-}
-
-/* ========================= */
 /* FOOTER */
 /* ========================= */
 
 footer{
     text-align:center;
     padding:40px;
-    color:#8c8c8c;
+    color:#888;
     border-top:1px solid rgba(255,255,255,0.05);
 }
 
 /* ========================= */
 /* ANIMATIONS */
 /* ========================= */
-
-@keyframes fadeUp{
-
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
 
 @keyframes pulse{
 
@@ -424,28 +275,11 @@ footer{
 
 @media(max-width:900px){
 
-    nav{
-        padding:18px 6%;
+    .header-content h1{
+        font-size:3.5rem;
     }
 
-    nav h1{
-        font-size:1.5rem;
-    }
-
-    nav a{
-        margin-left:14px;
-        font-size:0.9rem;
-    }
-
-    .hero-content h2{
-        font-size:3.3rem;
-    }
-
-    .hero-content p{
-        font-size:1rem;
-    }
-
-    .section-title h3{
+    .category-title h2{
         font-size:2.4rem;
     }
 
@@ -462,7 +296,7 @@ footer{
 <body>
 
 <!-- ========================= -->
-<!-- OPENING INTRO -->
+<!-- INTRO -->
 <!-- ========================= -->
 
 <div class="intro">
@@ -471,78 +305,47 @@ footer{
 
         <h1>LUNAR</h1>
 
-        <p>premium dining experience</p>
+        <p>premium menu experience</p>
 
     </div>
 
 </div>
 
 <!-- ========================= -->
-<!-- NAVBAR -->
+<!-- HEADER -->
 <!-- ========================= -->
 
-<nav>
+<div class="header">
 
-    <h1>LUNAR</h1>
+    <div class="header-content">
 
-    <div>
-        <a href="#menu">Menú</a>
-        <a href="#reservas">Reservas</a>
-        <a href="#">Instagram</a>
-    </div>
-
-</nav>
-
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
-
-<div class="hero">
-
-    <div class="hero-content">
-
-        <h2>LUNAR CAFÉ</h2>
+        <h1>LUNAR MENU</h1>
 
         <p>
-            Una experiencia culinaria premium inspirada
-            en cafeterías europeas modernas y diseño minimalista.
+            Descubre nuestra selección premium
+            de hamburguesas, bebidas, pastas,
+            combos exclusivos y postres especiales.
         </p>
-
-        <div class="hero-buttons">
-
-            <button class="reserve" onclick="fakeReserve()">
-                Reservar Mesa
-            </button>
-
-            <button class="menu-btn" onclick="scrollMenu()">
-                Ver Menú
-            </button>
-
-        </div>
 
     </div>
 
 </div>
 
 <!-- ========================= -->
-<!-- MENU -->
+<!-- HAMBURGERS -->
 <!-- ========================= -->
 
-<section id="menu">
+<section class="category">
 
-    <div class="section-title">
+    <div class="category-title">
 
-        <h3>Nuestro Menú</h3>
+        <h2>Hamburguesas</h2>
 
-        <p>
-            Selección premium de bebidas y platillos
-        </p>
+        <p>Especialidades premium de la casa</p>
 
     </div>
 
     <div class="menu-grid">
-
-        <!-- CARD 1 -->
 
         <div class="food-card" onclick="toggleCard(this)">
 
@@ -563,16 +366,108 @@ footer{
             <div class="food-hidden">
 
                 <p>
-                    Pan brioche artesanal, carne Angus,
-                    queso gouda, cebolla caramelizada,
-                    salsa especial Lunar y papas trufadas.
+                    Carne Angus, queso gouda,
+                    cebolla caramelizada,
+                    salsa Lunar y papas trufadas.
                 </p>
 
             </div>
 
         </div>
 
-        <!-- CARD 2 -->
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- DRINKS -->
+<!-- ========================= -->
+
+<section class="category">
+
+    <div class="category-title">
+
+        <h2>Bebidas</h2>
+
+        <p>Con y sin alcohol</p>
+
+    </div>
+
+    <div class="menu-grid">
+
+        <div class="food-card" onclick="toggleCard(this)">
+
+            <div class="food-top">
+
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop">
+
+                <div class="food-info">
+
+                    <h3>Mojito Lunar</h3>
+
+                    <span>$180 MXN</span>
+
+                </div>
+
+            </div>
+
+            <div class="food-hidden">
+
+                <p>
+                    Ron premium, menta fresca,
+                    limón natural y agua mineral.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="food-card" onclick="toggleCard(this)">
+
+            <div class="food-top">
+
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop">
+
+                <div class="food-info">
+
+                    <h3>Latte Signature</h3>
+
+                    <span>$120 MXN</span>
+
+                </div>
+
+            </div>
+
+            <div class="food-hidden">
+
+                <p>
+                    Espresso premium con leche artesanal
+                    y notas suaves de vainilla.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PASTAS -->
+<!-- ========================= -->
+
+<section class="category">
+
+    <div class="category-title">
+
+        <h2>Pastas</h2>
+
+        <p>Recetas italianas modernas</p>
+
+    </div>
+
+    <div class="menu-grid">
 
         <div class="food-card" onclick="toggleCard(this)">
 
@@ -593,15 +488,33 @@ footer{
             <div class="food-hidden">
 
                 <p>
-                    Pasta cremosa preparada con ingredientes frescos,
-                    parmesano italiano y reducción de vino blanco.
+                    Pasta cremosa con parmesano italiano,
+                    vino blanco y especias frescas.
                 </p>
 
             </div>
 
         </div>
 
-        <!-- CARD 3 -->
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- COMBOS -->
+<!-- ========================= -->
+
+<section class="category">
+
+    <div class="category-title">
+
+        <h2>Combos</h2>
+
+        <p>Experiencias completas</p>
+
+    </div>
+
+    <div class="menu-grid">
 
         <div class="food-card" onclick="toggleCard(this)">
 
@@ -611,9 +524,9 @@ footer{
 
                 <div class="food-info">
 
-                    <h3>French Toast Deluxe</h3>
+                    <h3>Combo Midnight</h3>
 
-                    <span>$180 MXN</span>
+                    <span>$390 MXN</span>
 
                 </div>
 
@@ -622,8 +535,9 @@ footer{
             <div class="food-hidden">
 
                 <p>
-                    Pan brioche artesanal con frutos rojos,
-                    miel natural y crema ligera premium.
+                    Hamburguesa premium,
+                    bebida artesanal,
+                    papas y postre especial.
                 </p>
 
             </div>
@@ -635,34 +549,54 @@ footer{
 </section>
 
 <!-- ========================= -->
-<!-- RESERVATION -->
+<!-- DESSERT -->
 <!-- ========================= -->
 
-<section id="reservas">
+<section class="category">
 
-    <div class="reservation">
+    <div class="category-title">
 
-        <h3>Reservaciones</h3>
+        <h2>Postre del Día</h2>
 
-        <p>
-            Vive una experiencia gastronómica elegante
-            y moderna en Lunar Café.
-        </p>
+        <p>Especialidad recomendada</p>
 
-        <button onclick="fakeReserve()">
-            Reservar Ahora
-        </button>
+    </div>
+
+    <div class="menu-grid">
+
+        <div class="food-card" onclick="toggleCard(this)">
+
+            <div class="food-top">
+
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=2070&auto=format&fit=crop">
+
+                <div class="food-info">
+
+                    <h3>Cheesecake Lunar</h3>
+
+                    <span>$140 MXN</span>
+
+                </div>
+
+            </div>
+
+            <div class="food-hidden">
+
+                <p>
+                    Cheesecake artesanal con frutos rojos
+                    y reducción dulce premium.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
-
 <footer>
-    © 2026 Lunar Café — Concept Design
+    © 2026 Lunar Menu — Concept Design
 </footer>
 
 <script>
@@ -670,22 +604,6 @@ footer{
 function toggleCard(card){
 
     card.classList.toggle("active");
-
-}
-
-function fakeReserve(){
-
-    alert("Sistema de reservaciones próximamente...");
-
-}
-
-function scrollMenu(){
-
-    document
-    .getElementById("menu")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
 
 }
 
