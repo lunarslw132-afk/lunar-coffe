@@ -1,199 +1,695 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aura Café</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lunar Café</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b0b0b;
+    color:white;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* OPENING INTRO */
+/* ========================= */
+
+.intro{
+    position:fixed;
+    inset:0;
+    background:#050505;
+    z-index:99999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:hideIntro 1.4s ease forwards;
+    animation-delay:3.2s;
+}
+
+.intro::before{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    background:rgba(255,255,255,0.05);
+    border-radius:50%;
+    filter:blur(100px);
+    animation:pulse 4s infinite;
+}
+
+.intro-content{
+    text-align:center;
+    z-index:2;
+    animation:fadeUp 1.5s ease;
+}
+
+.intro-content h1{
+    font-size:6rem;
+    letter-spacing:14px;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:700;
+}
+
+.intro-content p{
+    margin-top:12px;
+    color:#bcbcbc;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    font-size:0.8rem;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+
+    padding:22px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(12px);
+
+    z-index:999;
+}
+
+nav h1{
+    font-size:2rem;
+    letter-spacing:3px;
+    font-family:'Cormorant Garamond', serif;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:24px;
+    opacity:0.8;
+    transition:0.3s;
+}
+
+nav a:hover{
+    opacity:1;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+
+    width:100%;
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:20px;
+}
+
+.hero-content{
+    max-width:850px;
+    animation:fadeUp 1.3s ease;
+}
+
+.hero-content h2{
+    font-size:5rem;
+    margin-bottom:20px;
+    letter-spacing:5px;
+    font-family:'Cormorant Garamond', serif;
+}
+
+.hero-content p{
+    color:#d1d1d1;
+    line-height:1.8;
+    margin-bottom:40px;
+    font-size:1.1rem;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons button{
+
+    padding:16px 34px;
+
+    border:none;
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:0.35s;
+
+    font-size:1rem;
+}
+
+.reserve{
+    background:white;
+    color:black;
+    font-weight:600;
+}
+
+.reserve:hover{
+    transform:translateY(-4px);
+}
+
+.menu-btn{
+    background:transparent;
+    color:white;
+    border:1px solid rgba(255,255,255,0.25) !important;
+}
+
+.menu-btn:hover{
+    background:white;
+    color:black;
+}
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+section{
+    padding:120px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h3{
+    font-size:3rem;
+    margin-bottom:10px;
+    font-family:'Cormorant Garamond', serif;
+}
+
+.section-title p{
+    color:#bdbdbd;
+}
+
+/* ========================= */
+/* MENU GRID */
+/* ========================= */
+
+.menu-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+/* ========================= */
+/* EXPANDABLE CARDS */
+/* ========================= */
+
+.food-card{
+
+    background:#141414;
+
+    border:
+    1px solid rgba(255,255,255,0.06);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:0.45s ease;
+}
+
+.food-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,255,255,0.15);
+}
+
+.food-top img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.food-info{
+    padding:24px;
+}
+
+.food-info h3{
+    font-size:1.8rem;
+    margin-bottom:8px;
+    font-family:'Cormorant Garamond', serif;
+}
+
+.food-info span{
+    color:#d9d9d9;
+}
+
+.food-hidden{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:0.5s ease;
+
+    padding:0 24px;
+}
+
+.food-hidden p{
+    color:#bdbdbd;
+    line-height:1.8;
+    padding-bottom:24px;
+}
+
+.food-card.active .food-hidden{
+    max-height:300px;
+}
+
+/* ========================= */
+/* RESERVATION */
+/* ========================= */
+
+.reservation{
+
+    background:#111;
+
+    border-radius:30px;
+
+    padding:80px 40px;
+
+    text-align:center;
+}
+
+.reservation h3{
+    font-size:3rem;
+    margin-bottom:20px;
+    font-family:'Cormorant Garamond', serif;
+}
+
+.reservation p{
+    color:#bdbdbd;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.reservation button{
+
+    padding:18px 38px;
+
+    border:none;
+    border-radius:14px;
+
+    background:white;
+    color:black;
+
+    cursor:pointer;
+
+    font-size:1rem;
+    font-weight:600;
+
+    transition:0.35s;
+}
+
+.reservation button:hover{
+    transform:scale(1.05);
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#8c8c8c;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* ========================= */
+/* ANIMATIONS */
+/* ========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
     }
 
-    body{
-      background:#0f0f0f;
-      color:white;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 
-    header{
-      height:100vh;
-      background:
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-      url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        opacity:0.3;
     }
 
-    .hero{
-      max-width:700px;
+    50%{
+        transform:scale(1.3);
+        opacity:0.6;
     }
 
-    .hero h1{
-      font-size:4rem;
-      margin-bottom:20px;
-      letter-spacing:2px;
+    100%{
+        transform:scale(1);
+        opacity:0.3;
     }
 
-    .hero p{
-      font-size:1.2rem;
-      color:#d8d8d8;
-      margin-bottom:35px;
-      line-height:1.6;
+}
+
+@keyframes hideIntro{
+
+    0%{
+        opacity:1;
+        visibility:visible;
     }
 
-    .buttons{
-      display:flex;
-      gap:15px;
-      justify-content:center;
-      flex-wrap:wrap;
+    100%{
+        opacity:0;
+        visibility:hidden;
     }
 
-    button{
-      padding:14px 28px;
-      border:none;
-      border-radius:12px;
-      cursor:pointer;
-      font-size:1rem;
-      transition:0.3s;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:900px){
+
+    nav{
+        padding:18px 6%;
     }
 
-    .reserve{
-      background:white;
-      color:black;
-      font-weight:bold;
+    nav h1{
+        font-size:1.5rem;
     }
 
-    .reserve:hover{
-      transform:scale(1.05);
+    nav a{
+        margin-left:14px;
+        font-size:0.9rem;
     }
 
-    .menu{
-      background:transparent;
-      border:1px solid white;
-      color:white;
+    .hero-content h2{
+        font-size:3.3rem;
     }
 
-    .menu:hover{
-      background:white;
-      color:black;
+    .hero-content p{
+        font-size:1rem;
     }
 
-    section{
-      padding:80px 10%;
+    .section-title h3{
+        font-size:2.4rem;
     }
 
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:center;
+    .intro-content h1{
+        font-size:3.5rem;
     }
 
-    .about img{
-      width:100%;
-      border-radius:20px;
-      object-fit:cover;
-      height:400px;
-    }
+}
 
-    .about-text h2{
-      font-size:2.5rem;
-      margin-bottom:20px;
-    }
+</style>
 
-    .about-text p{
-      color:#cfcfcf;
-      line-height:1.8;
-      font-size:1rem;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      border-top:1px solid #222;
-      color:#888;
-    }
-
-    @media(max-width:900px){
-
-      .hero h1{
-        font-size:2.8rem;
-      }
-
-      .about{
-        grid-template-columns:1fr;
-      }
-
-      .about img{
-        height:300px;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="hero">
-      <h1>AURA CAFÉ</h1>
+<!-- ========================= -->
+<!-- OPENING INTRO -->
+<!-- ========================= -->
 
-      <p>
-        Una experiencia premium donde el café,
-        la gastronomía y el diseño se unen.
-      </p>
+<div class="intro">
 
-      <div class="buttons">
+    <div class="intro-content">
 
-        <button class="reserve" onclick="fakeReservation()">
-          Reservar Mesa
-        </button>
+        <h1>LUNAR</h1>
 
-        <button class="menu">
-          Ver Menú
-        </button>
-
-      </div>
-    </div>
-  </header>
-
-  <section class="about">
-
-    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=2070&auto=format&fit=crop" alt="Restaurant">
-
-    <div class="about-text">
-
-      <h2>Sobre Nosotros</h2>
-
-      <p>
-        Aura Café ofrece una experiencia elegante y moderna
-        inspirada en cafeterías europeas premium.
-        Diseñado para crear momentos únicos,
-        desde desayunos tranquilos hasta cenas especiales.
-      </p>
+        <p>premium dining experience</p>
 
     </div>
 
-  </section>
+</div>
 
-  <footer>
-    © 2026 Aura Café — Concept Design
-  </footer>
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
 
-  <script>
+<nav>
 
-    function fakeReservation(){
-      alert("Sistema de reservaciones próximamente...");
-    }
+    <h1>LUNAR</h1>
 
-  </script>
+    <div>
+        <a href="#menu">Menú</a>
+        <a href="#reservas">Reservas</a>
+        <a href="#">Instagram</a>
+    </div>
+
+</nav>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<div class="hero">
+
+    <div class="hero-content">
+
+        <h2>LUNAR CAFÉ</h2>
+
+        <p>
+            Una experiencia culinaria premium inspirada
+            en cafeterías europeas modernas y diseño minimalista.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="reserve" onclick="fakeReserve()">
+                Reservar Mesa
+            </button>
+
+            <button class="menu-btn" onclick="scrollMenu()">
+                Ver Menú
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- MENU -->
+<!-- ========================= -->
+
+<section id="menu">
+
+    <div class="section-title">
+
+        <h3>Nuestro Menú</h3>
+
+        <p>
+            Selección premium de bebidas y platillos
+        </p>
+
+    </div>
+
+    <div class="menu-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="food-card" onclick="toggleCard(this)">
+
+            <div class="food-top">
+
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop">
+
+                <div class="food-info">
+
+                    <h3>Lunar Burger</h3>
+
+                    <span>$220 MXN</span>
+
+                </div>
+
+            </div>
+
+            <div class="food-hidden">
+
+                <p>
+                    Pan brioche artesanal, carne Angus,
+                    queso gouda, cebolla caramelizada,
+                    salsa especial Lunar y papas trufadas.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="food-card" onclick="toggleCard(this)">
+
+            <div class="food-top">
+
+                <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop">
+
+                <div class="food-info">
+
+                    <h3>Pasta Lunar</h3>
+
+                    <span>$240 MXN</span>
+
+                </div>
+
+            </div>
+
+            <div class="food-hidden">
+
+                <p>
+                    Pasta cremosa preparada con ingredientes frescos,
+                    parmesano italiano y reducción de vino blanco.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="food-card" onclick="toggleCard(this)">
+
+            <div class="food-top">
+
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop">
+
+                <div class="food-info">
+
+                    <h3>French Toast Deluxe</h3>
+
+                    <span>$180 MXN</span>
+
+                </div>
+
+            </div>
+
+            <div class="food-hidden">
+
+                <p>
+                    Pan brioche artesanal con frutos rojos,
+                    miel natural y crema ligera premium.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- RESERVATION -->
+<!-- ========================= -->
+
+<section id="reservas">
+
+    <div class="reservation">
+
+        <h3>Reservaciones</h3>
+
+        <p>
+            Vive una experiencia gastronómica elegante
+            y moderna en Lunar Café.
+        </p>
+
+        <button onclick="fakeReserve()">
+            Reservar Ahora
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+    © 2026 Lunar Café — Concept Design
+</footer>
+
+<script>
+
+function toggleCard(card){
+
+    card.classList.toggle("active");
+
+}
+
+function fakeReserve(){
+
+    alert("Sistema de reservaciones próximamente...");
+
+}
+
+function scrollMenu(){
+
+    document
+    .getElementById("menu")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+</script>
 
 </body>
 </html>
