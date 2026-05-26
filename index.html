@@ -18,18 +18,20 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:#080808;
+    background:#070707;
     color:white;
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
+/* ========================= */
 /* INTRO */
+/* ========================= */
 
 .intro{
     position:fixed;
@@ -68,20 +70,24 @@ html{
 }
 
 .intro-content p{
-    color:#bcbcbc;
+    color:#bdbdbd;
     letter-spacing:6px;
     text-transform:uppercase;
     font-size:0.8rem;
+    margin-top:10px;
 }
 
+/* ========================= */
 /* HERO */
+/* ========================= */
 
 .hero{
+
     width:100%;
     height:70vh;
 
     background:
-    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.78)),
+    linear-gradient(rgba(0,0,0,0.68),rgba(0,0,0,0.82)),
     url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
 
     background-size:cover;
@@ -112,14 +118,16 @@ html{
     font-size:1.1rem;
 }
 
+/* ========================= */
 /* CATEGORY */
+/* ========================= */
 
 section{
     padding:100px 10%;
 }
 
 .category{
-    margin-bottom:100px;
+    margin-bottom:110px;
 }
 
 .category-title{
@@ -129,15 +137,17 @@ section{
 
 .category-title h2{
     font-size:3rem;
-    margin-bottom:10px;
     font-family:'Cormorant Garamond', serif;
+    margin-bottom:10px;
 }
 
 .category-title p{
     color:#bcbcbc;
 }
 
+/* ========================= */
 /* GRID */
+/* ========================= */
 
 .menu-grid{
     display:grid;
@@ -145,13 +155,16 @@ section{
     gap:30px;
 }
 
+/* ========================= */
 /* CARD */
+/* ========================= */
 
 .food-card{
 
-    background:#111;
+    background:#101010;
 
-    border:1px solid rgba(255,255,255,0.06);
+    border:
+    1px solid rgba(255,255,255,0.06);
 
     border-radius:24px;
 
@@ -164,7 +177,7 @@ section{
 
 .food-card:hover{
     transform:translateY(-8px);
-    border-color:rgba(255,255,255,0.15);
+    border-color:rgba(255,255,255,0.16);
 }
 
 .food-top img{
@@ -185,10 +198,12 @@ section{
 }
 
 .food-info span{
-    color:#d7d7d7;
+    color:#d6d6d6;
 }
 
+/* ========================= */
 /* EXPAND */
+/* ========================= */
 
 .food-hidden{
 
@@ -217,13 +232,13 @@ section{
 
     border-radius:18px;
 
-    transition:0.5s ease;
-
     opacity:0;
+
+    transition:0.5s ease;
 }
 
 .food-card.active .food-hidden{
-    max-height:700px;
+    max-height:800px;
 }
 
 .food-card.active .expanded-image{
@@ -242,11 +257,16 @@ section{
 }
 
 .food-card.active{
+
     transform:scale(1.02);
-    border-color:rgba(255,255,255,0.18);
+
+    border-color:
+    rgba(255,255,255,0.18);
 }
 
+/* ========================= */
 /* FOOTER */
+/* ========================= */
 
 footer{
     text-align:center;
@@ -255,7 +275,9 @@ footer{
     border-top:1px solid rgba(255,255,255,0.05);
 }
 
+/* ========================= */
 /* ANIMATIONS */
+/* ========================= */
 
 @keyframes pulse{
 
@@ -288,12 +310,14 @@ footer{
     }
 }
 
+/* ========================= */
 /* MOBILE */
+/* ========================= */
 
 @media(max-width:900px){
 
     .hero-content h1{
-        font-size:3.5rem;
+        font-size:3.4rem;
     }
 
     .category-title h2{
@@ -353,35 +377,91 @@ footer{
 
 <div class="menu-grid">
 
-<!-- GENERIC CARD TEMPLATE REPEATED -->
-
-<script>
-const burgers = [
-["Lunar Burger","220","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop","Carne Angus premium, queso gouda, cebolla caramelizada, salsa Lunar y papas trufadas."],
-["Black Smoke","245","https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2070&auto=format&fit=crop","Doble carne smash, cheddar, tocino ahumado y salsa BBQ negra artesanal."],
-["Spicy Moon","230","https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=2070&auto=format&fit=crop","Jalapeños, queso pepper jack, salsa chipotle cremosa y pan brioche."],
-["Galaxy Melt","250","https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=2070&auto=format&fit=crop","Triple queso fundido, cebolla crispy y mayonesa de ajo rostizado."],
-["Truffle Beast","290","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=2074&auto=format&fit=crop","Carne premium con aceite de trufa negra, gouda ahumado y tocino maple."]
-];
-
-document.write(
-burgers.map(item => `
 <div class="food-card" onclick="toggleCard(this)">
 <div class="food-top">
-<img src="${item[2]}">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop">
 <div class="food-info">
-<h3>${item[0]}</h3>
-<span>$${item[1]} MXN</span>
+<h3>Lunar Burger</h3>
+<span>$220 MXN</span>
 </div>
 </div>
 <div class="food-hidden">
-<img class="expanded-image" src="${item[2]}">
-<p>${item[3]}</p>
+<img class="expanded-image" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop">
+<p>
+Carne Angus premium, queso gouda,
+cebolla caramelizada, salsa Lunar
+y papas trufadas.
+</p>
 </div>
 </div>
-`).join('')
-);
-</script>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Black Smoke</h3>
+<span>$245 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2070&auto=format&fit=crop">
+<p>
+Doble carne smash, cheddar,
+tocino ahumado y salsa BBQ negra artesanal.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Spicy Moon</h3>
+<span>$230 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=2070&auto=format&fit=crop">
+<p>
+Jalapeños, queso pepper jack,
+mayonesa chipotle y pan brioche artesanal.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Galaxy Melt</h3>
+<span>$250 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=2070&auto=format&fit=crop">
+<p>
+Triple queso fundido, cebolla crispy
+y mayonesa de ajo rostizado.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=2074&auto=format&fit=crop">
+<div class="food-info">
+<h3>Truffle Beast</h3>
+<span>$290 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=2074&auto=format&fit=crop">
+<p>
+Aceite de trufa negra, gouda ahumado,
+tocino maple y carne premium.
+</p>
+</div>
+</div>
 
 </div>
 
@@ -398,32 +478,73 @@ burgers.map(item => `
 
 <div class="menu-grid">
 
-<script>
-const pastas = [
-["Pasta Lunar","240","https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop","Pasta cremosa con parmesano italiano y reducción de vino blanco."],
-["Truffle Alfredo","280","https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2070&auto=format&fit=crop","Fettuccine artesanal con salsa Alfredo y aceite de trufa negra."],
-["Carbonara Elite","260","https://images.unsplash.com/photo-1608756687911-aa1599ab0386?q=80&w=2070&auto=format&fit=crop","Panceta premium, parmesano añejo y pasta italiana fresca."],
-["Pink Vodka Pasta","275","https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=2070&auto=format&fit=crop","Salsa cremosa de tomate y vodka con queso parmesano."]
-];
-
-document.write(
-pastas.map(item => `
 <div class="food-card" onclick="toggleCard(this)">
 <div class="food-top">
-<img src="${item[2]}">
+<img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop">
 <div class="food-info">
-<h3>${item[0]}</h3>
-<span>$${item[1]} MXN</span>
+<h3>Pasta Lunar</h3>
+<span>$240 MXN</span>
 </div>
 </div>
 <div class="food-hidden">
-<img class="expanded-image" src="${item[2]}">
-<p>${item[3]}</p>
+<img class="expanded-image" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop">
+<p>
+Pasta cremosa con parmesano italiano
+y reducción de vino blanco.
+</p>
 </div>
 </div>
-`).join('')
-);
-</script>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Truffle Alfredo</h3>
+<span>$280 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2070&auto=format&fit=crop">
+<p>
+Fettuccine artesanal con salsa Alfredo
+y aceite de trufa negra premium.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1608756687911-aa1599ab0386?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Carbonara Elite</h3>
+<span>$260 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1608756687911-aa1599ab0386?q=80&w=2070&auto=format&fit=crop">
+<p>
+Panceta premium, parmesano añejo
+y pasta italiana fresca.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Pink Vodka Pasta</h3>
+<span>$275 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=2070&auto=format&fit=crop">
+<p>
+Salsa cremosa de tomate y vodka
+con queso parmesano premium.
+</p>
+</div>
+</div>
 
 </div>
 
@@ -435,44 +556,187 @@ pastas.map(item => `
 
 <div class="category-title">
 <h2>Bebidas</h2>
-<p>Con y sin alcohol</p>
+<p>7 con alcohol · 4 sin alcohol</p>
 </div>
 
 <div class="menu-grid">
 
-<script>
-const drinks = [
-["Mojito Lunar","180","https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop","Ron premium, menta fresca y limón natural."],
-["Berry Cocktail","190","https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2070&auto=format&fit=crop","Vodka premium y frutos rojos frescos."],
-["Golden Whiskey","260","https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=2070&auto=format&fit=crop","Whiskey añejado servido con hielo artesanal."],
-["Blue Lagoon","210","https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=2070&auto=format&fit=crop","Vodka cítrico y licor azul tropical."],
-["Espresso Martini","220","https://images.unsplash.com/photo-1575650772417-e6b418b0d2bf?q=80&w=2070&auto=format&fit=crop","Vodka premium, café espresso y licor de café."],
-["Red Wine Glass","240","https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop","Vino tinto reserva de la casa."],
-["Tequila Sunset","230","https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2070&auto=format&fit=crop","Tequila premium con naranja y granadina."],
-["Latte Signature","120","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop","Espresso premium con leche artesanal."],
-["Matcha Ice","130","https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=2070&auto=format&fit=crop","Té matcha frío con leche cremosa."],
-["Vanilla Milkshake","150","https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=2070&auto=format&fit=crop","Malteada artesanal de vainilla premium."],
-["Berry Soda","140","https://images.unsplash.com/photo-1543253687-c931c8e01820?q=80&w=2070&auto=format&fit=crop","Soda de frutos rojos y limón natural."]
-];
-
-document.write(
-drinks.map(item => `
 <div class="food-card" onclick="toggleCard(this)">
 <div class="food-top">
-<img src="${item[2]}">
+<img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop">
 <div class="food-info">
-<h3>${item[0]}</h3>
-<span>$${item[1]} MXN</span>
+<h3>Mojito Lunar</h3>
+<span>$180 MXN</span>
 </div>
 </div>
 <div class="food-hidden">
-<img class="expanded-image" src="${item[2]}">
-<p>${item[3]}</p>
+<img class="expanded-image" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop">
+<p>
+Ron premium, limón natural
+y menta fresca.
+</p>
 </div>
 </div>
-`).join('')
-);
-</script>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Berry Cocktail</h3>
+<span>$190 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2070&auto=format&fit=crop">
+<p>
+Vodka premium y frutos rojos frescos.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Golden Whiskey</h3>
+<span>$260 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=2070&auto=format&fit=crop">
+<p>
+Whiskey añejado servido con hielo artesanal.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Blue Lagoon</h3>
+<span>$210 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=2070&auto=format&fit=crop">
+<p>
+Vodka cítrico y licor azul tropical.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1575650772417-e6b418b0d2bf?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Espresso Martini</h3>
+<span>$220 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1575650772417-e6b418b0d2bf?q=80&w=2070&auto=format&fit=crop">
+<p>
+Vodka premium, espresso y licor de café.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Red Wine</h3>
+<span>$240 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop">
+<p>
+Vino tinto reserva premium de la casa.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Tequila Sunset</h3>
+<span>$230 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2070&auto=format&fit=crop">
+<p>
+Tequila premium con naranja y granadina.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Latte Signature</h3>
+<span>$120 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop">
+<p>
+Espresso premium con leche artesanal.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1fcef?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Matcha Ice</h3>
+<span>$130 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1517701550927-30cf4ba1fcef?q=80&w=2070&auto=format&fit=crop">
+<p>
+Té matcha frío con leche cremosa.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Vanilla Milkshake</h3>
+<span>$150 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1577805947697-89e18249d767?q=80&w=2070&auto=format&fit=crop">
+<p>
+Malteada artesanal de vainilla premium.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1543253687-c931c8e01820?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Berry Soda</h3>
+<span>$140 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1543253687-c931c8e01820?q=80&w=2070&auto=format&fit=crop">
+<p>
+Soda de frutos rojos y limón natural.
+</p>
+</div>
+</div>
 
 </div>
 
@@ -489,31 +753,56 @@ drinks.map(item => `
 
 <div class="menu-grid">
 
-<script>
-const desserts = [
-["Cheesecake Lunar","140","https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=2070&auto=format&fit=crop","Cheesecake artesanal con frutos rojos y crema premium."],
-["Chocolate Volcano","170","https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=2070&auto=format&fit=crop","Pastel de chocolate fundido con helado artesanal."],
-["Tiramisu Elite","160","https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=2070&auto=format&fit=crop","Tiramisú italiano con espresso y cacao premium."]
-];
-
-document.write(
-desserts.map(item => `
 <div class="food-card" onclick="toggleCard(this)">
 <div class="food-top">
-<img src="${item[2]}">
+<img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=2070&auto=format&fit=crop">
 <div class="food-info">
-<h3>${item[0]}</h3>
-<span>$${item[1]} MXN</span>
+<h3>Cheesecake Lunar</h3>
+<span>$140 MXN</span>
 </div>
 </div>
 <div class="food-hidden">
-<img class="expanded-image" src="${item[2]}">
-<p>${item[3]}</p>
+<img class="expanded-image" src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=2070&auto=format&fit=crop">
+<p>
+Cheesecake artesanal con frutos rojos
+y crema premium.
+</p>
 </div>
 </div>
-`).join('')
-);
-</script>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Chocolate Volcano</h3>
+<span>$170 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=2070&auto=format&fit=crop">
+<p>
+Pastel de chocolate fundido
+con helado artesanal.
+</p>
+</div>
+</div>
+
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=2070&auto=format&fit=crop">
+<div class="food-info">
+<h3>Tiramisu Elite</h3>
+<span>$160 MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=2070&auto=format&fit=crop">
+<p>
+Tiramisú italiano con espresso
+y cacao premium.
+</p>
+</div>
+</div>
 
 </div>
 
