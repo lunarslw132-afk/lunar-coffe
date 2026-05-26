@@ -29,9 +29,7 @@ html{
     scroll-behavior:smooth;
 }
 
-/* ========================= */
 /* INTRO */
-/* ========================= */
 
 .intro{
     position:fixed;
@@ -44,7 +42,7 @@ html{
     align-items:center;
 
     animation:hideIntro 1.2s ease forwards;
-    animation-delay:3s;
+    animation-delay:2.8s;
 }
 
 .intro::before{
@@ -52,8 +50,8 @@ html{
     position:absolute;
     width:350px;
     height:350px;
-    background:rgba(255,255,255,0.05);
     border-radius:50%;
+    background:rgba(255,255,255,0.05);
     filter:blur(100px);
     animation:pulse 4s infinite;
 }
@@ -70,24 +68,20 @@ html{
 }
 
 .intro-content p{
-    margin-top:10px;
     color:#bcbcbc;
     letter-spacing:6px;
     text-transform:uppercase;
     font-size:0.8rem;
 }
 
-/* ========================= */
 /* HERO */
-/* ========================= */
 
 .hero{
-
     width:100%;
     height:70vh;
 
     background:
-    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.78)),
     url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
 
     background-size:cover;
@@ -118,9 +112,7 @@ html{
     font-size:1.1rem;
 }
 
-/* ========================= */
 /* CATEGORY */
-/* ========================= */
 
 section{
     padding:100px 10%;
@@ -137,38 +129,29 @@ section{
 
 .category-title h2{
     font-size:3rem;
-    font-family:'Cormorant Garamond', serif;
     margin-bottom:10px;
+    font-family:'Cormorant Garamond', serif;
 }
 
 .category-title p{
     color:#bcbcbc;
 }
 
-/* ========================= */
 /* GRID */
-/* ========================= */
 
 .menu-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
 }
 
-/* ========================= */
-/* CARDS */
-/* ========================= */
+/* CARD */
 
 .food-card{
 
     background:#111;
 
-    border:
-    1px solid rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.06);
 
     border-radius:24px;
 
@@ -181,7 +164,7 @@ section{
 
 .food-card:hover{
     transform:translateY(-8px);
-    border-color:rgba(255,255,255,0.16);
+    border-color:rgba(255,255,255,0.15);
 }
 
 .food-top img{
@@ -205,9 +188,7 @@ section{
     color:#d7d7d7;
 }
 
-/* ========================= */
-/* EXPANDABLE */
-/* ========================= */
+/* EXPAND */
 
 .food-hidden{
 
@@ -215,17 +196,14 @@ section{
 
     overflow:hidden;
 
-    transition:0.5s ease;
+    transition:0.55s ease;
 
     padding:0 24px;
 }
 
 .food-hidden p{
-
     color:#bdbdbd;
-
     line-height:1.8;
-
     padding-bottom:24px;
 }
 
@@ -242,17 +220,15 @@ section{
     transition:0.5s ease;
 
     opacity:0;
-
-    margin-top:0;
 }
 
 .food-card.active .food-hidden{
-    max-height:600px;
+    max-height:700px;
 }
 
 .food-card.active .expanded-image{
 
-    height:190px;
+    height:200px;
 
     opacity:1;
 
@@ -262,20 +238,15 @@ section{
 }
 
 .food-card.active .food-top img{
-    height:300px;
+    height:320px;
 }
 
 .food-card.active{
-
     transform:scale(1.02);
-
-    border-color:
-    rgba(255,255,255,0.18);
+    border-color:rgba(255,255,255,0.18);
 }
 
-/* ========================= */
 /* FOOTER */
-/* ========================= */
 
 footer{
     text-align:center;
@@ -284,9 +255,7 @@ footer{
     border-top:1px solid rgba(255,255,255,0.05);
 }
 
-/* ========================= */
 /* ANIMATIONS */
-/* ========================= */
 
 @keyframes pulse{
 
@@ -304,7 +273,6 @@ footer{
         transform:scale(1);
         opacity:0.3;
     }
-
 }
 
 @keyframes hideIntro{
@@ -318,12 +286,9 @@ footer{
         opacity:0;
         visibility:hidden;
     }
-
 }
 
-/* ========================= */
 /* MOBILE */
-/* ========================= */
 
 @media(max-width:900px){
 
@@ -332,13 +297,12 @@ footer{
     }
 
     .category-title h2{
-        font-size:2.4rem;
+        font-size:2.3rem;
     }
 
     .intro-content h1{
         font-size:3.5rem;
     }
-
 }
 
 </style>
@@ -370,9 +334,8 @@ footer{
         <h1>LUNAR MENU</h1>
 
         <p>
-            Descubre hamburguesas premium,
-            pastas artesanales, bebidas exclusivas
-            y experiencias gastronómicas elegantes.
+            Una experiencia gastronómica premium inspirada
+            en restaurantes modernos y cocina internacional elegante.
         </p>
 
     </div>
@@ -383,111 +346,44 @@ footer{
 
 <section class="category">
 
-    <div class="category-title">
+<div class="category-title">
+<h2>Hamburguesas</h2>
+<p>5 especialidades premium</p>
+</div>
 
-        <h2>Hamburguesas</h2>
+<div class="menu-grid">
 
-        <p>Especialidades premium</p>
+<!-- GENERIC CARD TEMPLATE REPEATED -->
 
-    </div>
+<script>
+const burgers = [
+["Lunar Burger","220","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop","Carne Angus premium, queso gouda, cebolla caramelizada, salsa Lunar y papas trufadas."],
+["Black Smoke","245","https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2070&auto=format&fit=crop","Doble carne smash, cheddar, tocino ahumado y salsa BBQ negra artesanal."],
+["Spicy Moon","230","https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=2070&auto=format&fit=crop","Jalapeños, queso pepper jack, salsa chipotle cremosa y pan brioche."],
+["Galaxy Melt","250","https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=2070&auto=format&fit=crop","Triple queso fundido, cebolla crispy y mayonesa de ajo rostizado."],
+["Truffle Beast","290","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=2074&auto=format&fit=crop","Carne premium con aceite de trufa negra, gouda ahumado y tocino maple."]
+];
 
-    <div class="menu-grid">
+document.write(
+burgers.map(item => `
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="${item[2]}">
+<div class="food-info">
+<h3>${item[0]}</h3>
+<span>$${item[1]} MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="${item[2]}">
+<p>${item[3]}</p>
+</div>
+</div>
+`).join('')
+);
+</script>
 
-        <!-- CARD -->
-
-        <div class="food-card" onclick="toggleCard(this)">
-
-            <div class="food-top">
-
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop">
-
-                <div class="food-info">
-
-                    <h3>Lunar Burger</h3>
-
-                    <span>$220 MXN</span>
-
-                </div>
-
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop">
-
-                <p>
-                    Carne Angus premium, queso gouda,
-                    salsa Lunar, cebolla caramelizada
-                    y papas trufadas.
-                </p>
-
-            </div>
-
-        </div>
-
-        <!-- CARD -->
-
-        <div class="food-card" onclick="toggleCard(this)">
-
-            <div class="food-top">
-
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2070&auto=format&fit=crop">
-
-                <div class="food-info">
-
-                    <h3>Black Smoke Burger</h3>
-
-                    <span>$245 MXN</span>
-
-                </div>
-
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2070&auto=format&fit=crop">
-
-                <p>
-                    Doble carne smash, cheddar,
-                    tocino ahumado y salsa BBQ negra.
-                </p>
-
-            </div>
-
-        </div>
-
-        <!-- CARD -->
-
-        <div class="food-card" onclick="toggleCard(this)">
-
-            <div class="food-top">
-
-                <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=2070&auto=format&fit=crop">
-
-                <div class="food-info">
-
-                    <h3>Spicy Moon</h3>
-
-                    <span>$230 MXN</span>
-
-                </div>
-
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=2070&auto=format&fit=crop">
-
-                <p>
-                    Hamburguesa picante con jalapeños,
-                    queso pepper jack y mayonesa chipotle.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -495,75 +391,41 @@ footer{
 
 <section class="category">
 
-    <div class="category-title">
+<div class="category-title">
+<h2>Pastas</h2>
+<p>4 recetas italianas</p>
+</div>
 
-        <h2>Pastas</h2>
+<div class="menu-grid">
 
-        <p>Recetas italianas modernas</p>
+<script>
+const pastas = [
+["Pasta Lunar","240","https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop","Pasta cremosa con parmesano italiano y reducción de vino blanco."],
+["Truffle Alfredo","280","https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2070&auto=format&fit=crop","Fettuccine artesanal con salsa Alfredo y aceite de trufa negra."],
+["Carbonara Elite","260","https://images.unsplash.com/photo-1608756687911-aa1599ab0386?q=80&w=2070&auto=format&fit=crop","Panceta premium, parmesano añejo y pasta italiana fresca."],
+["Pink Vodka Pasta","275","https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=2070&auto=format&fit=crop","Salsa cremosa de tomate y vodka con queso parmesano."]
+];
 
-    </div>
+document.write(
+pastas.map(item => `
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="${item[2]}">
+<div class="food-info">
+<h3>${item[0]}</h3>
+<span>$${item[1]} MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="${item[2]}">
+<p>${item[3]}</p>
+</div>
+</div>
+`).join('')
+);
+</script>
 
-    <div class="menu-grid">
-
-        <div class="food-card" onclick="toggleCard(this)">
-
-            <div class="food-top">
-
-                <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop">
-
-                <div class="food-info">
-
-                    <h3>Pasta Lunar</h3>
-
-                    <span>$240 MXN</span>
-
-                </div>
-
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=2070&auto=format&fit=crop">
-
-                <p>
-                    Pasta cremosa con parmesano italiano
-                    y reducción de vino blanco.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="food-card" onclick="toggleCard(this)">
-
-            <div class="food-top">
-
-                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2070&auto=format&fit=crop">
-
-                <div class="food-info">
-
-                    <h3>Truffle Alfredo</h3>
-
-                    <span>$280 MXN</span>
-
-                </div>
-
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2070&auto=format&fit=crop">
-
-                <p>
-                    Fettuccine artesanal con salsa Alfredo
-                    y aceite de trufa negra premium.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -571,80 +433,94 @@ footer{
 
 <section class="category">
 
-    <div class="category-title">
+<div class="category-title">
+<h2>Bebidas</h2>
+<p>Con y sin alcohol</p>
+</div>
 
-        <h2>Bebidas</h2>
+<div class="menu-grid">
 
-        <p>Con y sin alcohol</p>
+<script>
+const drinks = [
+["Mojito Lunar","180","https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop","Ron premium, menta fresca y limón natural."],
+["Berry Cocktail","190","https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2070&auto=format&fit=crop","Vodka premium y frutos rojos frescos."],
+["Golden Whiskey","260","https://images.unsplash.com/photo-1527281400683-1aae777175f8?q=80&w=2070&auto=format&fit=crop","Whiskey añejado servido con hielo artesanal."],
+["Blue Lagoon","210","https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=2070&auto=format&fit=crop","Vodka cítrico y licor azul tropical."],
+["Espresso Martini","220","https://images.unsplash.com/photo-1575650772417-e6b418b0d2bf?q=80&w=2070&auto=format&fit=crop","Vodka premium, café espresso y licor de café."],
+["Red Wine Glass","240","https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop","Vino tinto reserva de la casa."],
+["Tequila Sunset","230","https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=2070&auto=format&fit=crop","Tequila premium con naranja y granadina."],
+["Latte Signature","120","https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop","Espresso premium con leche artesanal."],
+["Matcha Ice","130","https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=2070&auto=format&fit=crop","Té matcha frío con leche cremosa."],
+["Vanilla Milkshake","150","https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=2070&auto=format&fit=crop","Malteada artesanal de vainilla premium."],
+["Berry Soda","140","https://images.unsplash.com/photo-1543253687-c931c8e01820?q=80&w=2070&auto=format&fit=crop","Soda de frutos rojos y limón natural."]
+];
 
-    </div>
+document.write(
+drinks.map(item => `
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="${item[2]}">
+<div class="food-info">
+<h3>${item[0]}</h3>
+<span>$${item[1]} MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="${item[2]}">
+<p>${item[3]}</p>
+</div>
+</div>
+`).join('')
+);
+</script>
 
-    <div class="menu-grid">
+</div>
 
-        <div class="food-card" onclick="toggleCard(this)">
+</section>
 
-            <div class="food-top">
+<!-- POSTRES -->
 
-                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop">
+<section class="category">
 
-                <div class="food-info">
+<div class="category-title">
+<h2>Postres</h2>
+<p>3 especialidades dulces</p>
+</div>
 
-                    <h3>Mojito Lunar</h3>
+<div class="menu-grid">
 
-                    <span>$180 MXN</span>
+<script>
+const desserts = [
+["Cheesecake Lunar","140","https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=2070&auto=format&fit=crop","Cheesecake artesanal con frutos rojos y crema premium."],
+["Chocolate Volcano","170","https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=2070&auto=format&fit=crop","Pastel de chocolate fundido con helado artesanal."],
+["Tiramisu Elite","160","https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=2070&auto=format&fit=crop","Tiramisú italiano con espresso y cacao premium."]
+];
 
-                </div>
+document.write(
+desserts.map(item => `
+<div class="food-card" onclick="toggleCard(this)">
+<div class="food-top">
+<img src="${item[2]}">
+<div class="food-info">
+<h3>${item[0]}</h3>
+<span>$${item[1]} MXN</span>
+</div>
+</div>
+<div class="food-hidden">
+<img class="expanded-image" src="${item[2]}">
+<p>${item[3]}</p>
+</div>
+</div>
+`).join('')
+);
+</script>
 
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop">
-
-                <p>
-                    Ron premium, limón natural,
-                    menta fresca y agua mineral.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="food-card" onclick="toggleCard(this)">
-
-            <div class="food-top">
-
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop">
-
-                <div class="food-info">
-
-                    <h3>Latte Signature</h3>
-
-                    <span>$120 MXN</span>
-
-                </div>
-
-            </div>
-
-            <div class="food-hidden">
-
-                <img class="expanded-image" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop">
-
-                <p>
-                    Espresso premium con leche artesanal
-                    y notas suaves de vainilla.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 <footer>
-    © 2026 Lunar Menu — Concept Design
+© 2026 Lunar Menu — Concept Design
 </footer>
 
 <script>
@@ -659,4 +535,3 @@ function toggleCard(card){
 
 </body>
 </html>
-
